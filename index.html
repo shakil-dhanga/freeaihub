@@ -279,14 +279,15 @@
               </div>
             </div>
 
-            <!-- Tool 2: Text to PDF -->
+           <!-- Tool 6: QR Code Generator -->
             <div class="tool-card animate-on-scroll">
-              <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
-              <h3>Text to PDF</h3>
-              <p>Convert any text into a downloadable PDF file instantly.</p>
+              <div class="tool-icon"><i class="fas fa-qrcode"></i></div>
+              <h3>QR Code Generator</h3>
+              <p>Enter text or a link to generate a QR code instantly.</p>
               <div class="tool-links">
-                <textarea id="pdfText" placeholder="Enter text to convert" class="tool-input"></textarea>
-                <a onclick="downloadPDF()" class="tool-link">Download PDF</a>
+                <input type="text" id="qrInput" placeholder="Enter text or URL" class="tool-input">
+                <a onclick="generateQR()" class="tool-link">Generate QR</a>
+                <div id="qrCode"></div>
               </div>
             </div>
 
@@ -329,17 +330,18 @@
               </div>
             </div>
 
-            <!-- Tool 6: QR Code Generator -->
+
+             <!-- Tool 2: Text to PDF -->
             <div class="tool-card animate-on-scroll">
-              <div class="tool-icon"><i class="fas fa-qrcode"></i></div>
-              <h3>QR Code Generator</h3>
-              <p>Enter text or a link to generate a QR code instantly.</p>
+              <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
+              <h3>Text to PDF</h3>
+              <p>Convert any text into a downloadable PDF file instantly.</p>
               <div class="tool-links">
-                <input type="text" id="qrInput" placeholder="Enter text or URL" class="tool-input">
-                <a onclick="generateQR()" class="tool-link">Generate QR</a>
-                <div id="qrCode"></div>
+                <textarea id="pdfText" placeholder="Enter text to convert" class="tool-input"></textarea>
+                <a onclick="downloadPDF()" class="tool-link">Download PDF</a>
               </div>
             </div>
+            
 
           </div>
         </section>

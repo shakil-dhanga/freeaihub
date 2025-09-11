@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeAI Hub - Democratizing AI Access for Everyone</title>
+    <meta name="description" content="Discover free AI tools, generators, and resources. Our nonprofit mission is to make AI accessible to everyone without cost barriers.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tool Categories */
+        .categories {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .tool-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-link {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .tool-link:hover {
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature {
+            color: white;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tool-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .tool-card:nth-child(2) { animation-delay: 0.1s; }
+        .tool-card:nth-child(3) { animation-delay: 0.2s; }
+        .tool-card:nth-child(4) { animation-delay: 0.3s; }
+        .tool-card:nth-child(5) { animation-delay: 0.4s; }
+        .tool-card:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo"><i class="fas fa-robot"></i> FreeAI Hub</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="home">
+            <h1>Free AI Tools for Everyone</h1>
+            <p>Democratizing artificial intelligence - Breaking down barriers to make AI accessible to all</p>
+            <a href="#tools" class="cta-button">Explore Free Tools</a>
+        </section>
+
+        <section class="categories" id="tools">
+            <h2 class="section-title">Featured AI Tools & Resources</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>AI Writing Tools</h3>
+                    <p>Free text generators, grammar checkers, and writing assistants to enhance your content creation.</p>
+                    <a href="https://www.grammarly.com/grammar-check" class="tool-link" target="_blank">Try Grammarly</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-image"></i></div>
+                    <h3>AI Image Generators</h3>
+                    <p>Create stunning images from text descriptions using free AI-powered image generation tools.</p>
+                    <a href="https://www.canva.com/ai-image-generator/" class="tool-link" target="_blank">Try Canva AI</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-video"></i></div>
+                    <h3>Video AI Tools</h3>
+                    <p>Free video editing, subtitle generation, and video creation tools powered by AI.</p>
+                    <a href="https://www.capcut.com/" class="tool-link" target="_blank">Try CapCut</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>AI Voice Tools</h3>
+                    <p>Text-to-speech, voice cloning, and audio enhancement tools available for free.</p>
+                    <a href="https://www.naturalreaders.com/" class="tool-link" target="_blank">Try Natural Readers</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-code"></i></div>
+                    <h3>AI Code Assistants</h3>
+                    <p>Free coding help, bug fixes, and programming tutorials with AI assistance.</p>
+                    <a href="https://github.com/features/copilot" class="tool-link" target="_blank">Try GitHub Copilot</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>AI Business Tools</h3>
+                    <p>Free AI-powered analytics, chatbots, and business automation tools.</p>
+                    <a href="https://www.chatbot.com/" class="tool-link" target="_blank">Try Chatbot.com</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                    <h3>100% Free</h3>
+                    <p>All tools and resources are completely free to use. No hidden costs or premium barriers.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>Community Driven</h3>
+                    <p>Built by the community, for the community. We believe in open access to AI technology.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-sync"></i></div>
+                    <h3>Regular Updates</h3>
+                    <p>We continuously add new tools and update existing ones to keep you ahead of the curve.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Safe & Secure</h3>
+                    <p>All recommended tools are verified safe and respect your privacy and data security.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Our Mission</h3>
+                    <p>Making AI accessible to everyone, regardless of economic background. We believe technology should empower, not exclude.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <a href="#">Writing Tools</a>
+                    <a href="#">Image Generators</a>
+                    <a href="#">Video Tools</a>
+                    <a href="#">Voice AI</a>
+                    <a href="#">Code Assistants</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <a href="mailto:info@freeaihub.org">info@freeaihub.org</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Community Forum</a>
+                    <a href="#">Submit New Tool</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support Us</h3>
+                    <a href="#">Donate</a>
+                    <a href="#">Volunteer</a>
+                    <a href="#">Partner With Us</a>
+                    <a href="#">Spread the Word</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #444; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 FreeAI Hub - A Nonprofit Initiative. Made with ❤️ for everyone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects to tool cards
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Simple visitor counter (stored in memory only)
+        let visitorCount = parseInt(localStorage.getItem('visitorCount') || '1247');
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount.toString());
+
+        // Add visitor counter to footer
+        const visitorCounter = document.createElement('p');
+        visitorCounter.innerHTML = `<i class="fas fa-eye"></i> Visitors helped: ${visitorCount.toLocaleString()}`;
+        visitorCounter.style.marginTop = '1rem';
+        visitorCounter.style.opacity = '0.8';
+        document.querySelector('footer .container').appendChild(visitorCounter);
+    </script>
+</body>
+</html>

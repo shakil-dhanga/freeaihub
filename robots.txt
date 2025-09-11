@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://www.freeaihub.site/sitemap.xml
-
-# Block access to admin areas
-Disallow: /admin/
-Disallow: /.git/

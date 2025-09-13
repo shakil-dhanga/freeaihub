@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block admin or private areas (if any exist)
+Disallow: /wp-admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.freeaihub.site/sitemap.xml
